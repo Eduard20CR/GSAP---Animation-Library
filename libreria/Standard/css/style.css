@@ -1,0 +1,140 @@
+:root {
+    --primary: #333;
+    --secondary: #fff;
+    --text: #333;
+    --width: 600px;
+    --left: -600px;
+    --right: 600px;
+    --height: 250px;
+    --top: -250px;
+    --bottom: 250px;
+    --base: 12px;
+}
+
+.banner {
+    width: var(--width);
+    height: var(--height);
+    border: 1px solid var(--text);
+    background: var(--secondary);
+    overflow: hidden;
+    display: block !important;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#loader-container {
+    display: none;
+}
+
+#btn-exit {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.size {
+    top: -1px;
+    left: -1px;
+    width: var(--width);
+    height: var(--height);
+}
+
+#copy1 {
+    background: url(../img/copy01.png);
+    background-size: contain;
+}
+
+#copy2 {
+    background: url(../img/copy02.png);
+    background-size: contain;
+}
+
+#copy3 {
+    background: url(../img/copy03.png);
+    background-size: contain;
+}
+
+#copy4 {
+    background: url(../img/copy04.png);
+    background-size: contain;
+}
+
+#card {
+    background: url(../img/card.png);
+    background-size: contain;
+}
+
+#legend {
+    bottom: 12px;
+    left: 20px;
+    height: 20px;
+}
+
+#legend p {
+    color: var(--text);
+    font-size: var(--base);
+}
+
+.black {
+    color: var(--text);
+}
+
+.divContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.square {
+    display: block;
+    height: 20px;
+    width: 20px;
+    background: red;
+}
+
+
+/* --------------------------LIBRERIA------------------------ */
+
+.left {
+    left: var(--left);
+}
+
+.right {
+    left: var(--right);
+}
+
+.top {
+    top: var(--top);
+}
+
+.bottom {
+    top: var(--bottom);
+}
+
+.fadeInDirectionLeft {
+    left: -10px;
+}
+
+.fadeInDirectionRight {
+    left: 10px;
+}
+
+.fadeInDirectionTop {
+    top: -10px;
+}
+
+.fadeInDirectionBottom {
+    top: -10px;
+}
+
+.opacity0 {
+    opacity: 0;
+}
+
+.opacity1 {
+    opacity: 1;
+}
+
+.scale0 {
+    transform: scale(0);
+}
