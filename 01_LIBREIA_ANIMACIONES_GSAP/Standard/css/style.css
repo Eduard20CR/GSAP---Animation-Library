@@ -2,9 +2,9 @@
     --primary: #333;
     --secondary: #fff;
     --text: #333;
-    --width: 600px;
-    --left: -600px;
-    --right: 600px;
+    --width: 300px;
+    --left: -300px;
+    --right: 300px;
     --height: 250px;
     --top: -250px;
     --bottom: 250px;
@@ -90,6 +90,7 @@
     height: 20px;
     width: 20px;
     background: red;
+    opacity: 0;
 }
 
 
@@ -111,19 +112,19 @@
     top: var(--bottom);
 }
 
-.fadeInDirectionLeft {
+.directionLeft {
     left: -10px;
 }
 
-.fadeInDirectionRight {
+.directionRight {
     left: 10px;
 }
 
-.fadeInDirectionTop {
+.directionTop {
     top: -10px;
 }
 
-.fadeInDirectionBottom {
+.directionBottom {
     top: -10px;
 }
 
@@ -137,4 +138,12 @@
 
 .scale0 {
     transform: scale(0);
+}
+
+.flipY {
+    transform: rotateY(-90deg);
+}
+
+.flipX {
+    transform: rotateX(-90deg);
 }
