@@ -20,8 +20,15 @@
                 </div>
                 <div class="container__inputArea">
                     <textarea name="" id="main" rows="10" placeholder="Ejemplo: copy1.png copy2.png copy3.png copy4.png"></textarea>
-                    <button>Transform</button>
+                    <button id="btnSubmit">Transform</button>
                 </div>
+                <hr>
+                <div class="container__pils">
+                    <h2>Containers:</h2>
+                    <div class="container__pilsContainer" id="pilsContainer">
+                    </div>
+                </div>
+                <hr>
                 <div class="container__result">
                     <h2>Result</h2>
                     <div class="container__resultInputContainer">
@@ -29,24 +36,24 @@
                         <div class="container__resultItem container__resultItem--html">
                             <label for="html">HTML</label>
                             <textarea name="" id="html" rows="10"></textarea>
-                            <button>copy</button>
+                            <button id="btnHtml">copy</button>
                         </div>
                         <div class="container__resultItem container__resultItem--css">
                             <label for="css">CSS</label>
                             <textarea name="" id="css" rows="10"></textarea>
-                            <button>copy</button>
+                            <button id="btnCss">copy</button>
                         </div>
                         <div class="container__resultItem container__resultItem--js">
                             <label for="js">JS</label>
                             <textarea name="" id="js" rows="10"></textarea>
-                            <button>copy</button>
+                            <button class="btnJs">copy</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
