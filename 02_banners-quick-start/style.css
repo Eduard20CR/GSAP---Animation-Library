@@ -120,6 +120,11 @@ textarea {
     padding: 20px;
 }
 
+.container__pils p {
+    text-align: center;
+    margin-top: 5px;
+}
+
 .container__pils h2 {
     text-align: center;
     font-size: 20px;
@@ -129,6 +134,7 @@ textarea {
 .container__pilsContainer {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -146,6 +152,11 @@ textarea {
     transition: color .2s, background .2s;
 }
 
+.container__pilsItem.active {
+    background: var(--fifth);
+    color: var(--primary);
+}
+
 .container__pilsItem:hover {
     background: var(--fifth);
     color: var(--primary);
@@ -155,4 +166,25 @@ hr {
     border-width: 1px;
     border-color: var(--primary);
     margin: 40px;
+}
+
+.container__setings {
+    overflow: hidden;
+    max-height: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container__setingsItem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container__setingsItem select {
+    margin-top: 10px;
+    width: 120px;
+    display: inline-block;
 }

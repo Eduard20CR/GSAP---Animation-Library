@@ -43,6 +43,7 @@
 #copy1 {
     background: url(../img/copy01.png);
     background-size: contain;
+    left: var(--left);
 }
 
 #copy2 {

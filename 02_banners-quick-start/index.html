@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banners Easy Start</title>
+    <title>Banners Quick Start</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -25,8 +25,40 @@
                 <hr>
                 <div class="container__pils">
                     <h2>Containers:</h2>
+                    <p>Seleciona un contenedor si quiere editarlo</p>
                     <div class="container__pilsContainer" id="pilsContainer">
                     </div>
+                    <div id="container__setings" class="container__setings">
+                        <div class="container__setingsItem">
+                            <label for="direction">Direction</label>
+                            <select id="direction" name="direction">
+                                <option value="" selected>None</option>
+                                <option value="left">Left</option>
+                                <option value="right" >Right</option>
+                                <option value="top">Top</option>
+                                <option value="bottom">bottom</option>
+                              </select>
+                        </div>
+                        <div class="container__setingsItem">
+                            <label for="opacity">Opacity</label>
+                            <select id="opacity" name="opacity">
+                                <option value="" selected>None</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value=".5">.5</option>
+                              </select>
+                        </div>
+                        <div class="container__setingsItem">
+                            <label for="scale">Scale</label>
+                            <select id="scale" name="scale">
+                                <option value="" selected>None</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value=".5">.5</option>
+                              </select>
+                        </div>
+                    </div>
+                    <button id="btnFinish">Finish</button>
                 </div>
                 <hr>
                 <div class="container__result">
@@ -46,7 +78,7 @@
                         <div class="container__resultItem container__resultItem--js">
                             <label for="js">JS</label>
                             <textarea name="" id="js" rows="10"></textarea>
-                            <button class="btnJs">copy</button>
+                            <button id="btnJs">copy</button>
                         </div>
                     </div>
                 </div>
