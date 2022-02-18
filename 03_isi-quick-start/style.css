@@ -166,6 +166,23 @@ textarea {
     color: var(--primary);
 }
 
+.type {
+    background: var(--secondary);
+    padding: 2px 5px;
+    transition: color .2s, background .2s;
+    border-radius: 5px;
+}
+
+.container__pilsItem.active .type {
+    color: var(--fifth);
+    background: var(--primary);
+}
+
+.container__pilsItem:hover .type {
+    color: var(--fifth);
+    background: var(--primary);
+}
+
 hr {
     border-width: 1px;
     border-color: var(--primary);
@@ -188,6 +205,12 @@ hr {
 }
 
 .container__setingsItem select {
+    margin-top: 10px;
+    width: 120px;
+    display: inline-block;
+}
+
+.container__setingsItem input {
     margin-top: 10px;
     width: 120px;
     display: inline-block;

@@ -2,7 +2,6 @@
 let input = document.querySelector('#main');
 let html = document.querySelector('#html');
 let css = document.querySelector('#css');
-let js = document.querySelector('#js');
 let pilsContainer = document.querySelector('#pilsContainer');
 // BTN
 let btnSubmit = document.querySelector('#btnSubmit');
@@ -11,9 +10,8 @@ let btnCss = document.querySelector('#btnCss');
 let btnJs = document.querySelector('#btnJs');
 let btnFinish = document.querySelector('#btnFinish');
 let container__setings = document.querySelector('#container__setings');
-let direction = document.querySelector('#direction');
-let opacity = document.querySelector('#opacity');
-let scale = document.querySelector('#scale');
+let setType = document.querySelector('#setType');
+let classes = document.querySelector('#classes');
 let allPills;
 // VARIABLES
 let arrayImg;
@@ -42,12 +40,11 @@ let itemObsject = [];
 
 btnSubmit.addEventListener('click', startProces);
 btnFinish.addEventListener('click', setAllParams);
-direction.addEventListener('change', changeDirection);
-opacity.addEventListener('change', changeOpacity);
-scale.addEventListener('change', changeScale);
+setType.addEventListener('change', changeType);
+classes.addEventListener('keyup', changeClasses);
 btnHtml.addEventListener('click', copyClipboardHtml);
 btnCss.addEventListener('click', copyClipboardCss);
-btnJs.addEventListener('click', copyClipboardJs);
+
 
 // ------------------------------------START PROCESS----------------------------------
 function startProces() {
@@ -61,36 +58,32 @@ function startProces() {
         return;
     }
     for (item of arrayImg) {
-        siType = item;
+        type = returnType(item);
         noType = removeType(item)
+        if (noType == '') continue;
         objectItem = {
-            name: noType,
-            url: siType,
-            cssParams: {
-                direction: '',
-                opacity: '',
-                scale: ''
-            },
+            text: noType,
+            type: type,
             htmlCode: '',
-            cssCode: '',
-            jsCode: ''
+            class: ''
         };
+        if (objectItem.type == 'ul' || objectItem.type == 'ul2' || objectItem.type == 'ol' || objectItem.type == 'ol2') {
+            objectItem.type = type;
+        }
         itemObsject.push(objectItem);
         createPills();
         openOption();
     }
+    console.log(itemObsject)
     objectItem = null;
 }
 
 function setAllParams() {
     for (item of itemObsject) {
         let htmlCode = setHTML(item);
-        let cssCode = setCss(item);
-        let jsCode = setJs(item);
+
 
         item.htmlCode = htmlCode;
-        item.cssCode = cssCode;
-        item.jsCode = jsCode;
         counter++;
     }
     counter = 0;
@@ -101,29 +94,71 @@ function setAllParams() {
 function setFinalTask() {
     finalHtml = '';
     finalCss = '';
-    finalJs = '';
     for (item of itemObsject) {
         finalHtml = finalHtml.concat(`\n`, item.htmlCode)
-        finalCss = finalCss.concat(`\n`, item.cssCode)
-        finalJs = finalJs.concat(`\n`, item.jsCode)
+        setCss(item);
+        // finalCss = finalCss.concat(`\n`, item.cssCode)
     }
     finalHtml = finalHtml.replace(/^\s*\n/gm, "");
     finalCss = finalCss.replace(/^\s*\n/gm, "");
-    finalJs = finalJs.replace(/^\s*\n/gm, "");
     html.value = finalHtml;
+    console.log(finalCss);
     css.value = finalCss;
-    js.value = finalJs;
 }
 
 
 // ------------------------------------SET LENGUAJES----------------------------------
+
+
 function setHTML(item) {
     let htmlCode;
-
-    let container = document.createElement('div');
-    container.setAttribute("id", item.name);
-    container.setAttribute("class", 'size retina');
-
+    if (item.type == 'ol' || item.type == 'ol2' || item.type == 'ul' || item.type == 'ul2') {
+        switch (item.type) {
+            case 'ol':
+                return '<ol>'
+            case 'ol2':
+                return '</ol>'
+            case 'ul':
+                return '<ul>'
+            case 'ul2':
+                return '</ul>'
+        }
+    }
+    let container
+    if (item.type == 'li') {
+        container = document.createElement('li');
+    } else {
+        container = document.createElement('p');
+    }
+    switch (item.type) {
+        case 'p':
+            if (item.class != '') container.setAttribute("class", item.class);
+            break;
+        case 'h1':
+            if (item.class != '') container.setAttribute("class", 'h1 ' + item.class)
+            else container.setAttribute("class", 'h1');
+            break;
+        case 'h2':
+            if (item.class != '') container.setAttribute("class", 'h2 ' + item.class)
+            else container.setAttribute("class", 'h2');
+            break;
+        case 'h3':
+            if (item.class != '') container.setAttribute("class", 'h3 ' + item.class)
+            else container.setAttribute("class", 'h3');
+            break;
+        case 'li':
+            if (item.class != '') container.setAttribute("class", 'list ' + item.class)
+            else container.setAttribute("class", 'list');
+            break;
+        case 'list':
+            if (item.class != '') container.setAttribute("class", 'list ' + item.class)
+            else container.setAttribute("class", 'list');
+            break;
+        default:
+            if (item.class != '') container.setAttribute("class", item.class);
+            break;
+    }
+    container.innerHTML = item.text;
     var containString = document.createElement("div");
     containString.appendChild(container);
     htmlCode = containString.innerHTML
@@ -132,14 +167,14 @@ function setHTML(item) {
 }
 
 function setCss(item) {
-    let newCss = `#${item.name} {
-        background: url(../img/${item.url});
-        ${ directionReturn() }
-        ${ opacityReturn() }
-        ${ scaleReturn() }
+    if (item.class == '') return;
+    let newclasses = divideText2(item.class)
+    for (iteme of newclasses) {
+        let newCss = `#${iteme} {
+        
     }`;
-    newCss = newCss.replace(/^\s*\n/gm, "");
-    return newCss;
+        finalCss = finalCss.concat(`\n`, newCss)
+    }
 }
 
 function setJs(item) {
@@ -147,15 +182,15 @@ function setJs(item) {
     return newJs;
 }
 
-function createPills() {
+function createPills(num) {
     pilsContainer.innerHTML = '';
     let i = 0;
     for (item of itemObsject) {
         let container = document.createElement('div');
-        container.setAttribute("class", 'container__pilsItem');
+        num == 2 && itemEdit == i ? container.setAttribute("class", 'container__pilsItem active') : container.setAttribute("class", 'container__pilsItem');
         container.setAttribute("id", "item" + i);
         container.setAttribute("onClick", 'setItem(' + i + ')');
-        container.innerHTML = item.name;
+        container.innerHTML = '<span class="type">' + item.type + '</span>' + ' - ' + item.text;
         pilsContainer.appendChild(container);
         i++;
     }
@@ -168,18 +203,105 @@ function createPills() {
 function divideText() {
     arrayImg = input.value.split('\n')
 }
-// --------REMOVE TYPE FILE--------
+
+function divideText2(e) {
+    return e.split(' ')
+}
+// --------REMOVE TYPE TAG--------
 function removeType(e) {
     // return
-    if (e.includes('.png')) {
-        return e.replace('.png', '');
+    if (e.includes('*h1 ')) {
+        return e.replace('*h1 ', '');
     }
-    if (e.includes('.jpg')) {
-        return e.replace('.jpg', '');
+    if (e.includes('*h1')) {
+        return e.replace('*h1', '');
+    }
+    if (e.includes('*h2 ')) {
+        return e.replace('*h2 ', '');
+    }
+    if (e.includes('*h2')) {
+        return e.replace('*h2', '');
+    }
+    if (e.includes('*h3 ')) {
+        return e.replace('*h3 ', '');
+    }
+    if (e.includes('*h3')) {
+        return e.replace('*h3', '');
+    }
+    if (e.includes('*list ')) {
+        return e.replace('*list ', '');
+    }
+    if (e.includes('*list')) {
+        return e.replace('*list', '');
+    }
+    if (e.includes('*li ')) {
+        return e.replace('*li ', '');
+    }
+    if (e.includes('*li')) {
+        return e.replace('*li', '');
+    }
+    if (e.includes('*ul2')) {
+        return 'ul2'
+    }
+    if (e.includes('*ul')) {
+        return 'ul'
+    }
+    if (e.includes('*ol2')) {
+        return 'ol2'
+    }
+    if (e.includes('*ol')) {
+        return 'ol'
     }
     return e;
 }
-// --------SET CSS--------
+// --------RETUNR TYPE TAG--------
+function returnType(e) {
+    // return
+    if (e.includes('*h1 ')) {
+        return "h1";
+    }
+    if (e.includes('*h1')) {
+        return "h1";
+    }
+    if (e.includes('*h2 ')) {
+        return 'h2';
+    }
+    if (e.includes('*h2')) {
+        return 'h2';
+    }
+    if (e.includes('*h3 ')) {
+        return 'h3';
+    }
+    if (e.includes('*h3')) {
+        return 'h3';
+    }
+    if (e.includes('*list ')) {
+        return 'list'
+    }
+    if (e.includes('*list')) {
+        return 'list'
+    }
+    if (e.includes('*li ')) {
+        return 'li'
+    }
+    if (e.includes('*li')) {
+        return 'li'
+    }
+    if (e.includes('*ul2')) {
+        return 'ul2'
+    }
+    if (e.includes('*ul')) {
+        return 'ul'
+    }
+    if (e.includes('*ol2')) {
+        return 'ol2'
+    }
+    if (e.includes('*ol')) {
+        return 'ol'
+    }
+    return 'p';
+}
+// --------SET CSS-------- XXXXXXXXXXXX
 function directionReturn() {
     if (itemObsject[counter].cssParams.direction != '') {
         switch (itemObsject[counter].cssParams.direction) {
@@ -231,38 +353,34 @@ function setItem(i) {
         item.setAttribute("class", 'container__pilsItem')
     }
     document.getElementById('item' + i).classList.toggle("active", true);
-    direction.value = itemObsject[itemEdit].cssParams.direction
-    opacity.value = itemObsject[itemEdit].cssParams.opacity
-    scale.value = itemObsject[itemEdit].cssParams.scale
+    setType.value = itemObsject[itemEdit].type
+    classes.value = itemObsject[itemEdit].class
 }
 
-function changeDirection() {
+function changeType() {
     if (itemEdit == null) {
         resetSelect();
     }
-    itemObsject[itemEdit].cssParams.direction = direction.value;
+    itemObsject[itemEdit].type = setType.value;
+
+    console.log(itemObsject)
+    createPills(2);
 }
 
-function changeOpacity() {
+function changeClasses() {
     if (itemEdit == null) {
         resetSelect();
     }
-    itemObsject[itemEdit].cssParams.opacity = opacity.value;
+    itemObsject[itemEdit].class = classes.value;
+    createPills(2);
 }
 
-function changeScale() {
-
-    if (itemEdit == null) {
-        resetSelect();
-    }
-    itemObsject[itemEdit].cssParams.scale = scale.value;
-}
 
 function resetSelect() {
     alert('Select a container')
-    direction.value = '';
-    opacity.value = '';
-    scale.value = '';
+    setType.value = '';
+    classes.value = '';
+
 }
 
 // --------SET OPTIONS PILLS--------
