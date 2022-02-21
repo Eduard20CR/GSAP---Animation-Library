@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 80%;
+    margin: 0 auto;
+    &__inputs {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    &__inputItem {}
+    &__banner {
+        flex-grow: 1;
+    }
+    &__bannerContainer {
+        border: 1px solid #000;
+        margin: 0 auto;
+    }
+}

@@ -18,6 +18,10 @@ let arrayImg;
 let objectItem;
 let siType;
 let noType;
+let h1 = 0;
+let h2 = 0;
+let h3 = 0;
+let list = 0;
 let counter = 0;
 let itemEdit = null;
 
@@ -94,10 +98,16 @@ function setAllParams() {
 function setFinalTask() {
     finalHtml = '';
     finalCss = '';
+    h1 = 0;
+    h2 = 0;
+    h3 = 0;
+    list = 0;
+    for (item of itemObsject) {
+        setCssType(item);
+    }
     for (item of itemObsject) {
         finalHtml = finalHtml.concat(`\n`, item.htmlCode)
         setCss(item);
-        // finalCss = finalCss.concat(`\n`, item.cssCode)
     }
     finalHtml = finalHtml.replace(/^\s*\n/gm, "");
     finalCss = finalCss.replace(/^\s*\n/gm, "");
@@ -170,11 +180,52 @@ function setCss(item) {
     if (item.class == '') return;
     let newclasses = divideText2(item.class)
     for (iteme of newclasses) {
-        let newCss = `#${iteme} {
-        
-    }`;
+        let newCss = `.${iteme} {    
+}`;
         finalCss = finalCss.concat(`\n`, newCss)
     }
+}
+
+function setCssType(item) {
+    let newCss;
+    if (item.type == 'h1' && h1 == 0) {
+        h1 = 1;
+        newCss = `.h1 {
+    color:#000000;
+    font-weight: bold;
+}`;
+        finalCss = finalCss.concat(`\n`, newCss)
+    };
+    if (item.type == 'h2' && h2 == 0) {
+        h2 = 1;
+        newCss = `.h2 {
+    color:#000000;
+    font-weight: bold;
+}`;
+        finalCss = finalCss.concat(`\n`, newCss)
+    };
+    if (item.type == 'h3' && h3 == 0) {
+        h3 = 1;
+        newCss = `.h3 {
+    color:#000000;
+    font-weight: bold;
+}`;
+        finalCss = finalCss.concat(`\n`, newCss)
+    };
+    if (item.type == 'li' && list == 0 || item.type == 'list' && list == 0) {
+        list = 1;
+        newCss = `#isi .list{
+    position: relative;
+}
+        
+#isi .list::before {
+    position: absolute;
+    content: '•';
+    margin-left: 20px;
+}
+        `;
+        finalCss = finalCss.concat(`\n`, newCss)
+    };
 }
 
 function setJs(item) {
@@ -338,7 +389,7 @@ function scaleReturn() {
 // --------SET OPTIONS PILLS--------
 
 function openOption() {
-    container__setings.style.maxHeight = "200px";
+    container__setings.style.maxHeight = "400px";
 }
 
 function closeOption() {

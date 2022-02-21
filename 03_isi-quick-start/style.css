@@ -43,6 +43,29 @@ button:hover {
     color: var(--primary);
 }
 
+.nav {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+}
+
+.nav div:hover a {
+    text-decoration: underline;
+}
+
+.nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav div .active {
+    pointer-events: none;
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -58,6 +81,13 @@ button:hover {
 
 .container__inputArea {
     padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container__inputArea textarea {
+    line-height: 30px;
 }
 
 textarea {
@@ -113,6 +143,13 @@ textarea {
     }
     .container__resultItem label {
         margin-bottom: 10px;
+    }
+    .container__setings {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container__setingsItem {
+        margin-top: 10px;
     }
 }
 
@@ -202,16 +239,21 @@ hr {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    width: 300px;
 }
 
 .container__setingsItem select {
     margin-top: 10px;
-    width: 120px;
+    width: 100%;
+    padding: 7px 5px;
+    /* width: 120px; */
     display: inline-block;
 }
 
 .container__setingsItem input {
     margin-top: 10px;
-    width: 120px;
+    width: 100%;
+    padding: 7px 5px;
+    /* width: 120px; */
     display: inline-block;
 }

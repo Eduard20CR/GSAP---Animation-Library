@@ -216,7 +216,7 @@ function scaleReturn() {
 // --------SET OPTIONS PILLS--------
 
 function openOption() {
-    container__setings.style.maxHeight = "200px";
+    container__setings.style.maxHeight = "400px";
 }
 
 function closeOption() {
