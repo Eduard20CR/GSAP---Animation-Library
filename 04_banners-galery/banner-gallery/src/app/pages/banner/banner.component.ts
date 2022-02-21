@@ -6,19 +6,38 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./banner.component.scss'],
 })
 export class BannerComponent implements OnInit {
-  width = 200;
-  height = 200;
+  width = 300;
+  height = 250;
   @ViewChild('widthValue', { static: true }) widthValue;
   constructor() {}
 
   ngOnInit(): void {}
 
-  onIputUpdate(e) {
+  onIputUpdateWidth(e) {
     let num = +e.value;
 
+    if (num < 1000 || num > 0) {
+      this.width = num;
+    }
     if (num > 1000) {
-      console.log(num);
       this.width = 1000;
+    }
+    if (num < 0) {
+      this.width = 0;
+    }
+  }
+
+  onIputUpdateHeight(e) {
+    let num = +e.value;
+
+    if (num < 1000 || num > 0) {
+      this.height = num;
+    }
+    if (num > 1000) {
+      this.height = 1000;
+    }
+    if (num < 0) {
+      this.height = 0;
     }
   }
 }
