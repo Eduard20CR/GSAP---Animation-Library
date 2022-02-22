@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AnimationTypesComponent implements OnInit {
   type = 'Slide In';
   typeArray = ['', ''];
+  open = false;
   constructor() {}
 
   ngOnInit(): void {}
