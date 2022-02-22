@@ -1,10 +1,3 @@
-<div class="container" [ngClass]="{ active: open }">
-    <div class="container__title">
-        <h2>{{ type }}</h2>
-        <div class="container__openIcon" (click)="open = !open"></div>
-    </div>
-    <div class="container__typeList" [ngClass]="{ active: open }">
-        <span class="container__typeItem" *ngFor="let item of typeArray">Oscar</span
-    >
-  </div>
+<div class="container">
+    <span class="container__item" *ngFor="let item of typesArray; let i = index;">{{item.name}}</span>
 </div>

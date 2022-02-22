@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './pages/banner/banner.component';
 import { PagesComponent } from './pages/pages.component';
+import { AnimationMenusComponent } from './pages/animation-menus/animation-menus.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimationTypesComponent } from './pages/animation-types/animation-types.component';
 
 @NgModule({
@@ -13,12 +15,14 @@ import { AnimationTypesComponent } from './pages/animation-types/animation-types
     AppComponent,
     PagesComponent,
     BannerComponent,
+    AnimationMenusComponent,
     AnimationTypesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
