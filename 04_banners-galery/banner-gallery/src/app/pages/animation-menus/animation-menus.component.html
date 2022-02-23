@@ -6,7 +6,17 @@
         </div> -->
     </div>
     <div class="container__typeList" [ngClass]="{ active: open }">
-        <span class="container__typeItem" *ngFor="let item of typeArray">Oscar</span
-    >
-  </div>
+        <div class="container__typeItem">
+            <h3 class="container__typeHead">Type</h3>
+            <div class="container__typeItemContainer">
+                <span class="container__typeItemDescription" *ngFor="let item of typeArray">Oscar</span>
+            </div>
+        </div>
+        <div class="container__typeItem">
+            <h3 class="container__typeHead">Type</h3>
+            <div class="container__typeItemContainer">
+                <span class="container__typeItemDescription" *ngFor="let item of typeArray">Oscar</span>
+            </div>
+        </div>
+    </div>
 </div>

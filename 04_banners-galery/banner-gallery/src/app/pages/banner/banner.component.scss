@@ -2,13 +2,21 @@
     display: flex;
     align-items: center;
     justify-items: center;
+    flex-direction: column;
     margin: 0 auto;
     &__inputs {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
     }
-    &__inputItem {}
+    &__inputItem {
+        margin: 10px;
+        input {
+            padding: 8px 20px;
+            border-radius: 15px;
+            margin-left: 10px;
+        }
+    }
     &__banner {
         flex-grow: 1;
     }
