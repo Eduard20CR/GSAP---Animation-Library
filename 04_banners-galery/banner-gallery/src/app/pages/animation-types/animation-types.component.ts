@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SiblingCommunicationService } from 'src/app/shared/services/sibling-communication/sibling-communication.service';
+import animationArray from './../../../assets/data/animations/animations.json'
 
 @Component({
   selector: 'app-animation-types',
@@ -8,17 +9,12 @@ import { SiblingCommunicationService } from 'src/app/shared/services/sibling-com
 })
 export class AnimationTypesComponent implements OnInit {
   text = 'asd';
-  typesArray = [
-    { name: 'in' },
-    { name: 'out' },
-    { name: 'stagger' },
-    { name: 'atention' },
-  ];
+  typesArray = animationArray[0].animations;
   constructor(private siblingsComunication: SiblingCommunicationService) {}
 
   ngOnInit(): void {}
 
-  onSelectAnimationType(e) {
-    this.siblingsComunication.selectAnimationType(e);
+  onSelectAnimationType(animationName, animationID) {
+    this.siblingsComunication.selectAnimationType(animationName,animationID);
   }
 }

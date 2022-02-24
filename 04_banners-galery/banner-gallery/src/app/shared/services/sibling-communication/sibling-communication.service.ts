@@ -9,9 +9,10 @@ export class SiblingCommunicationService {
 
   actualAnimationType = '';
 
-  sendAnimationType = new Subject<string>();
+  sendAnimationType = new Subject<any>();
 
-  selectAnimationType(e: string) {
-    this.sendAnimationType.next(e);
+  selectAnimationType(animationName: string,animationID:number) {
+    const animationMenuData = {animationName:animationName,animationID:animationID}
+    this.sendAnimationType.next(animationMenuData);
   }
 }

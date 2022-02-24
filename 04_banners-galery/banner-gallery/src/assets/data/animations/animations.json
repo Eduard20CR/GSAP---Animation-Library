@@ -24,6 +24,32 @@
                     "animationGsap": ""
                 }]
             }]
+        },
+        {
+            "id": 3,
+            "type": "stagger",
+            "animationTypeArray": [{
+                "id": 1,
+                "title": "slide in stagger",
+                "animationsArray": [{
+                    "id": 1,
+                    "animationName": "left",
+                    "animationGsap": ""
+                }]
+            }]
+        },
+        {
+            "id": 4,
+            "type": "atention",
+            "animationTypeArray": [{
+                "id": 1,
+                "title": "atention",
+                "animationsArray": [{
+                    "id": 1,
+                    "animationName": "left",
+                    "animationGsap": ""
+                }]
+            }]
         }
     ]
 }]

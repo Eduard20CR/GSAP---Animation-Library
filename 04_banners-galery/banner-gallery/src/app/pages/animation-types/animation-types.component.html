@@ -1,4 +1,4 @@
 <div class="container">
-    <span class="container__item" *ngFor="let item of typesArray; let i = index" (click)="onSelectAnimationType(item.name)">{{ item.name }}</span
+    <span class="container__item" *ngFor="let item of typesArray; let i = index" (click)="onSelectAnimationType(item.type, item.id)">{{ item.type }}</span
   >
 </div>
