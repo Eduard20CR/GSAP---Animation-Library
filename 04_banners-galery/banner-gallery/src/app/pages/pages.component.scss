@@ -1,13 +1,25 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     height: 100vh;
+    gap: 20px;
     align-items: center;
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
+    }
     &__banner {
         grid-row: 1/-1;
+        @media (max-width: 1200px) {
+            grid-row: auto;
+        }
     }
     &__controller {
         grid-row: 1/-1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        @media (max-width: 1200px) {
+            grid-row: auto;
+        }
     }
 }

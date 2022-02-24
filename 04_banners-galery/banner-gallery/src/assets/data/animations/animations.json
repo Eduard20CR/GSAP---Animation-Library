@@ -1,0 +1,29 @@
+[{
+    "animations": [{
+            "id": 1,
+            "type": "in",
+            "animationTypeArray": [{
+                "id": 1,
+                "title": "slide in",
+                "animationsArray": [{
+                    "id": 1,
+                    "animationName": "left",
+                    "animationGsap": ""
+                }]
+            }]
+        },
+        {
+            "id": 2,
+            "type": "out",
+            "animationTypeArray": [{
+                "id": 1,
+                "title": "slide out",
+                "animationsArray": [{
+                    "id": 1,
+                    "animationName": "left",
+                    "animationGsap": ""
+                }]
+            }]
+        }
+    ]
+}]
