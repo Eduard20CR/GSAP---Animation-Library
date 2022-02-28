@@ -3,14 +3,39 @@
             "id": 1,
             "type": "in",
             "animationTypeArray": [{
-                "id": 1,
-                "title": "slide in",
-                "animationsArray": [{
                     "id": 1,
-                    "animationName": "left",
-                    "animationGsap": ""
-                }]
-            }]
+                    "title": "slide in",
+                    "animationsArray": [{
+                        "id": 1,
+                        "animationName": "left",
+                        "animationGsap": ""
+                    }]
+                },
+                {
+                    "id": 1,
+                    "title": "fade in",
+                    "animationsArray": [{
+                            "id": 1,
+                            "animationName": "left",
+                            "animationGsap": ""
+                        },
+                        {
+                            "id": 1,
+                            "animationName": "right",
+                            "animationGsap": ""
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "title": "scale in",
+                    "animationsArray": [{
+                        "id": 1,
+                        "animationName": "left",
+                        "animationGsap": ""
+                    }]
+                }
+            ]
         },
         {
             "id": 2,

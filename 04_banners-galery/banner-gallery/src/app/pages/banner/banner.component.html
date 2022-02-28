@@ -12,6 +12,11 @@
         </div>
     </div>
     <div class="container__banner">
-        <div class="container__bannerContainer" [style.width.px]="width" [style.height.px]="height"></div>
+        <div class="container__bannerContainer" [style.width.px]="width" [style.height.px]="height" #banner>
+            <div id="box1" class="size retina" #box1></div>
+        </div>
+    </div>
+    <div class="container__btn">
+        <button (click)=onResetAnimation()>RESTART</button>
     </div>
 </div>

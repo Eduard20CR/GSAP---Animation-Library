@@ -21,15 +21,12 @@ export class AnimationMenusComponent implements OnInit{
   ngOnInit(): void {
     
     this.animationsData = this.animationsDataService.returnAnimations();
-    console.log(this.animationsData)
+    
     this.siblingsComunication.sendAnimationType.subscribe((e) => {
       this.type = e.animationName;
       this.animationMenuData = this.animationsData[0].animations[e.animationID-1].animationTypeArray;
     });
     this.animationMenuData = this.animationsData[0].animations[this.actualMenu].animationTypeArray;
-console.log(this.animationMenuData);
-
-
   }
 
 
