@@ -12,10 +12,10 @@
                 <span class="container__typeItemDescription" *ngFor="let item of typeArray">Oscar</span>
             </div>
         </div> -->
-        <div class="container__typeItem" *ngFor="let item of animationMenuData">
+        <div class="container__typeItem" *ngFor="let item of animationMenuData; let i = index;">
             <h3 class="container__typeHead">{{item.title}}</h3>
             <div class="container__typeItemContainer">
-                <span class="container__typeItemDescription" *ngFor="let itemPill of item.animationsArray" animationId="itemPill.id">{{itemPill.animationName}}</span>
+                <span class="container__typeItemDescription" *ngFor="let itemPill of item.animationsArray; let iChild = index;" animationId="itemPill.id" (click)="onSendAnimation(i,iChild)">{{itemPill.animationName}}</span>
             </div>
         </div>
 

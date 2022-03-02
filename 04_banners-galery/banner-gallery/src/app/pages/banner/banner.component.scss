@@ -11,7 +11,9 @@
         flex-direction: column;
     }
     &__inputItem {
+        display: flex;
         margin: 10px;
+        align-items: center;
         input {
             padding: 8px 20px;
             border-radius: 15px;
@@ -26,13 +28,14 @@
         margin: 0 auto;
         position: relative;
         overflow: hidden;
-        div {
-            position: absolute;
-            left: -1px;
-            top: -1px;
-        }
+    }
+    &__controls {
+        margin-top: 20px;
+        display: flex;
+        gap: 40px;
     }
     &__btn {
+        align-self: center;
         display: flex;
         justify-content: center;
         width: 100%;
@@ -54,13 +57,35 @@
     }
 }
 
+.size {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+}
+
 .retina {
     background-size: contain !important;
     background-repeat: no-repeat !important;
 }
 
-#box1 {
+.box {
     height: 20px;
     width: 20px;
     background: $--primary;
+    &:nth-child(1) {
+        top: 0px;
+    }
+    // &:nth-child(2) {
+    //     top: 41px;
+    // }
+    // &:nth-child(3) {
+    //     top: 62px;
+    // }
+    // &:nth-child(4) {
+    //     top: 83px;
+    // }
+}
+
+#copy {
+    background-image: url(/assets/img/banner/copy1_1.png);
 }

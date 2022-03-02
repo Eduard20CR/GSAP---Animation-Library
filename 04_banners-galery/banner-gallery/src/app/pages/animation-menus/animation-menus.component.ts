@@ -1,4 +1,4 @@
-import {  Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnimationsDataService } from 'src/app/shared/services/animations-data/animations-data.service';
 import { SiblingCommunicationService } from 'src/app/shared/services/sibling-communication/sibling-communication.service';
 
@@ -7,28 +7,33 @@ import { SiblingCommunicationService } from 'src/app/shared/services/sibling-com
   templateUrl: './animation-menus.component.html',
   styleUrls: ['./animation-menus.component.scss'],
 })
-export class AnimationMenusComponent implements OnInit{
+export class AnimationMenusComponent implements OnInit {
   type = 'In';
   typeArray = ['', ''];
   open = false;
   animationMenuData;
-  
-  actualMenu=0;
+
+  actualMenu = 0;
   animationsData;
 
-  constructor(private siblingsComunication: SiblingCommunicationService, private animationsDataService: AnimationsDataService) {}
+  constructor(private siblingsComunication: SiblingCommunicationService, private animationsDataService: AnimationsDataService) { }
 
   ngOnInit(): void {
-    
+
     this.animationsData = this.animationsDataService.returnAnimations();
-    
+
     this.siblingsComunication.sendAnimationType.subscribe((e) => {
       this.type = e.animationName;
-      this.animationMenuData = this.animationsData[0].animations[e.animationID-1].animationTypeArray;
+      this.animationMenuData = this.animationsData[0].animations[e.animationID - 1].animationTypeArray;
     });
     this.animationMenuData = this.animationsData[0].animations[this.actualMenu].animationTypeArray;
   }
 
+  onSendAnimation(section, id) {
 
-  
+
+    this.siblingsComunication.sendSpecificAnimation(section, id);
+  }
+
+
 }

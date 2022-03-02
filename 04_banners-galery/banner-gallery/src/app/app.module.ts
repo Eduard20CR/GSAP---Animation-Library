@@ -9,6 +9,8 @@ import { PagesComponent } from './pages/pages.component';
 import { AnimationMenusComponent } from './pages/animation-menus/animation-menus.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimationTypesComponent } from './pages/animation-types/animation-types.component';
+import { BannerDivComponent } from './pages/banner/banner-div/banner-div/banner-div.component';
+import { NewDivComponent } from './pages/banner/new-div/new-div/new-div.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AnimationTypesComponent } from './pages/animation-types/animation-types
     PagesComponent,
     BannerComponent,
     AnimationMenusComponent,
-    AnimationTypesComponent
+    AnimationTypesComponent,
+    BannerDivComponent,
+    NewDivComponent
   ],
   imports: [
     BrowserModule,

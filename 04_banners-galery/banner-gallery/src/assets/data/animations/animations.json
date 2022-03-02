@@ -3,26 +3,72 @@
             "id": 1,
             "type": "in",
             "animationTypeArray": [{
-                    "id": 1,
+                    "id": 0,
                     "title": "slide in",
                     "animationsArray": [{
-                        "id": 1,
-                        "animationName": "left",
-                        "animationGsap": ""
-                    }]
+                            "id": 0,
+                            "animationName": "left",
+                            "animationGsap": "this.tt.slideIn(this.animatedDiv, { direction: 'left' })"
+                        },
+                        {
+                            "id": 1,
+                            "animationName": "right",
+                            "animationGsap": "this.tt.slideIn(this.animatedDiv, { direction: 'right' })"
+                        },
+                        {
+                            "id": 2,
+                            "animationName": "top",
+                            "animationGsap": "this.tt.slideIn(this.animatedDiv, { direction: 'top' })"
+                        },
+                        {
+                            "id": 3,
+                            "animationName": "bottom",
+                            "animationGsap": "this.tt.slideIn(this.animatedDiv, { direction: 'bottom' })"
+                        }
+                    ]
                 },
                 {
                     "id": 1,
                     "title": "fade in",
                     "animationsArray": [{
-                            "id": 1,
-                            "animationName": "left",
-                            "animationGsap": ""
+                            "id": 0,
+                            "animationName": "center",
+                            "animationGsap": "this.tt.fadeIn(this.animatedDiv)"
                         },
                         {
                             "id": 1,
+                            "animationName": "left",
+                            "animationGsap": "this.tt.fadeInDirection(this.animatedDiv,{direction:'left',x:10})"
+                        },
+                        {
+                            "id": 2,
                             "animationName": "right",
-                            "animationGsap": ""
+                            "animationGsap": "this.tt.fadeInDirection(this.animatedDiv,{direction:'right',x:10})"
+                        },
+                        {
+                            "id": 3,
+                            "animationName": "top",
+                            "animationGsap": "this.tt.fadeInDirection(this.animatedDiv,{direction:'top',x:10})"
+                        },
+                        {
+                            "id": 4,
+                            "animationName": "bottom",
+                            "animationGsap": "this.tt.fadeInDirection(this.animatedDiv,{direction:'bottom',x:10})"
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "title": "flip in",
+                    "animationsArray": [{
+                            "id": 0,
+                            "animationName": "x",
+                            "animationGsap": "this.tt.flipXIn(this.animatedDiv)"
+                        },
+                        {
+                            "id": 1,
+                            "animationName": "y",
+                            "animationGsap": "this.tt.flipYIn(this.animatedDiv)"
                         }
                     ]
                 },
@@ -30,9 +76,9 @@
                     "id": 1,
                     "title": "scale in",
                     "animationsArray": [{
-                        "id": 1,
-                        "animationName": "left",
-                        "animationGsap": ""
+                        "id": 0,
+                        "animationName": "center",
+                        "animationGsap": "this.tt.scaleIn(this.animatedDiv)"
                     }]
                 }
             ]
@@ -44,7 +90,7 @@
                 "id": 1,
                 "title": "slide out",
                 "animationsArray": [{
-                    "id": 1,
+                    "id": 0,
                     "animationName": "left",
                     "animationGsap": ""
                 }]
@@ -57,7 +103,7 @@
                 "id": 1,
                 "title": "slide in stagger",
                 "animationsArray": [{
-                    "id": 1,
+                    "id": 0,
                     "animationName": "left",
                     "animationGsap": ""
                 }]
@@ -70,7 +116,7 @@
                 "id": 1,
                 "title": "atention",
                 "animationsArray": [{
-                    "id": 1,
+                    "id": 0,
                     "animationName": "left",
                     "animationGsap": ""
                 }]

@@ -1,22 +1,30 @@
 <div class="container">
-    <div class="container__inputs">
-        <div class="container__inputItem">
-            <label for="width">Width</label>
-            <input type="number" id="width" [(ngModel)]="width" max="1000" (input)="onIputUpdateWidth(widthValue)" #widthValue="ngModel" />
-            <p *ngIf="!widthValue.valid">Pon un numero menor a 1000</p>
-        </div>
-        <div class="container__inputItem">
-            <label for="height">Height</label>
-            <input type="number" id="height" [(ngModel)]="height" max="1000" (input)="onIputUpdateHeight(heightValue)" #heightValue="ngModel" />
-            <p *ngIf="!heightValue.valid">Pon un numero menor a 1000</p>
-        </div>
-    </div>
-    <div class="container__banner">
-        <div class="container__bannerContainer" [style.width.px]="width" [style.height.px]="height" #banner>
-            <div id="box1" class="size retina" #box1></div>
+
+    <div class="container__viewSection">
+        <div class="container__banner">
+            <div class="container__bannerContainer" [style.width.px]="width" [style.height.px]="height" #banner>
+                <div id="copy" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
+                <div *ngIf="stagger" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
+                <div *ngIf="stagger" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
+                <div *ngIf="stagger" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
+            </div>
         </div>
     </div>
-    <div class="container__btn">
-        <button (click)=onResetAnimation()>RESTART</button>
+    <div class="container__controls">
+        <div class="container__btn">
+            <button (click)=onResetAnimation()>RESTART</button>
+        </div>
+        <div class="container__inputs">
+            <div class="container__inputItem">
+                <label for="width">Width</label>
+                <input type="number" id="width" [(ngModel)]="width" max="1000" (input)="onIputUpdateWidth(widthValue)" #widthValue="ngModel" />
+                <p *ngIf="!widthValue.valid">Pon un numero menor a 1000</p>
+            </div>
+            <div class="container__inputItem">
+                <label for="height">Height</label>
+                <input type="number" id="height" [(ngModel)]="height" max="1000" (input)="onIputUpdateHeight(heightValue)" #heightValue="ngModel" />
+                <p *ngIf="!heightValue.valid">Pon un numero menor a 1000</p>
+            </div>
+        </div>
     </div>
 </div>
