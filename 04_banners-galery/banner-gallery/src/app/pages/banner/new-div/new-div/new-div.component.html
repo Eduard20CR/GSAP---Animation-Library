@@ -1,9 +1,46 @@
 <div class="container">
-    <div class="container__bg"></div>
+    <div class="container__bg" (click)='onCloseModal()'></div>
     <div class="container__controler">
-        <div class="container__preview">
-            <div class="container__preview"></div>
+        <div class="container__header">
+            <h1>{{action}}</h1>
         </div>
-        <div class="container__controls"></div>
+        <div class="container__preview">
+            <div>
+                <div class="container__banner" [style.width.px]="width" [style.height.px]="height" #banner>
+                    <div class="container__bannerItem" [style.background]="'url('+urlImage+')'" [style.width.px]="widthItem" [style.height.px]="heightItem" #item></div>
+                </div>
+            </div>
+            <div>
+                <div class="container__inputs">
+                    <div class="container__inputItem">
+                        <label for="width">Width</label>
+                        <input type="number" id="width" [(ngModel)]="width" max="1000" (input)="onIputUpdateWidth(widthValue)" #widthValue="ngModel" />
+                        <p *ngIf="!widthValue.valid">Pon un numero menor a 1000</p>
+                    </div>
+                    <div class="container__inputItem">
+                        <label for="height">Height</label>
+                        <input type="number" id="height" [(ngModel)]="height" max="1000" (input)="onIputUpdateHeight(heightValue)" #heightValue="ngModel" />
+                        <p *ngIf="!heightValue.valid">Pon un numero menor a 1000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container__controls">
+            <div class="container__inputItem">
+                <label for="img">Image</label>
+                <input type="file" name="img" id="img" (input)="newimg($event)" #img>
+            </div>
+            <div class="container__inputItem">
+                <label for="width">Width</label>
+                <input type="number" name="width" id="width" [(ngModel)]="widthItem" min="0" max="1000" (input)="onIputUpdateWidthItem(widthItemValue)" #widthItemValue="ngModel">
+            </div>
+            <div class="container__inputItem">
+                <label for="height">Height</label>
+                <input type="number" name="height" id="height" [(ngModel)]="heightItem" min="0" max="1000" (input)="onIputUpdateHeightItem(heightItemValue)" #heightItemValue="ngModel">
+            </div>
+        </div>
+        <div class="container__close" (click)='onCloseModal()'>
+            <span>X</span>
+        </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiblingCommunicationService } from '../shared/services/sibling-communication/sibling-communication.service';
 
 @Component({
   selector: 'app-pages',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  newDivModal = false;
+
+  constructor(private siblingsComunication: SiblingCommunicationService) { }
 
   ngOnInit(): void {
+    this.siblingsComunication.closeModalNewDivImg.subscribe(e => {
+      this.newDivModal = false;
+    })
+    this.siblingsComunication.openModalNewDivImg.subscribe(e => {
+      this.newDivModal = true;
+    })
   }
 
 }

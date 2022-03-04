@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { gsap } from "gsap";
 import { AnimationsDataService } from 'src/app/shared/services/animations-data/animations-data.service';
 import { SiblingCommunicationService } from 'src/app/shared/services/sibling-communication/sibling-communication.service';
@@ -13,7 +13,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
   height = 250;
   @ViewChildren('box') boxes;
   @ViewChild('banner', { static: true }) banner: ElementRef;
-  animatedDiv = [];
+  animatedDiv: any[] = [];
 
   //animation selected
   stagger = false;
@@ -24,12 +24,16 @@ export class BannerComponent implements OnInit, AfterViewInit {
   //timeline
   tt = gsap.timeline()
 
-  constructor(private animationDataService: AnimationsDataService, private siblingComunicationService: SiblingCommunicationService, private renderer: Renderer2) { }
-
-  ngOnInit(): void {
+  constructor(private animationDataService: AnimationsDataService, private siblingComunicationService: SiblingCommunicationService, private renderer: Renderer2) {
 
   }
+
+  ngOnInit(): void {
+  }
   ngAfterViewInit(): void {
+    // setTimeout(() => {
+    //   this.animatedDiv.push('');
+    // }, 0);
     //send baner size
     this.animationDataService.setBannerWidth(this.width);
     this.animationDataService.setBannerHeight(this.height);
@@ -47,6 +51,11 @@ export class BannerComponent implements OnInit, AfterViewInit {
       this.reset();
       this.setTimeline()
     })
+  }
+
+  onOpenModal() {
+    this.animatedDiv.push('')
+    // this.siblingComunicationService.onOpenModal();
   }
 
   //when banner width is changed

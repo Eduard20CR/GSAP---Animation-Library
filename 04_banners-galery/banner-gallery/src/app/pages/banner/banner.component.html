@@ -3,12 +3,10 @@
     <div class="container__viewSection">
         <div class="container__banner">
             <div class="container__bannerContainer" [style.width.px]="width" [style.height.px]="height" #banner>
-                <div id="copy" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
-                <div *ngIf="stagger" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
-                <div *ngIf="stagger" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
-                <div *ngIf="stagger" class="size retina" [style.width.px]="width" [style.height.px]="height" #box></div>
+                <div *ngFor="let i of animatedDiv" class="size retina box" [style.width.px]="width" [style.height.px]="height" #box></div>
             </div>
         </div>
+        <div class="container__addMore" (click)="onOpenModal()"><span>+</span></div>
     </div>
     <div class="container__controls">
         <div class="container__btn">

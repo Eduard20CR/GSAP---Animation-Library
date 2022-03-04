@@ -20,6 +20,9 @@
             margin-left: 10px;
         }
     }
+    &__viewSection {
+        display: flex;
+    }
     &__banner {
         flex-grow: 1;
     }
@@ -28,6 +31,26 @@
         margin: 0 auto;
         position: relative;
         overflow: hidden;
+    }
+    &__addMore {
+        background: $--primary;
+        height: 30px;
+        width: 30px;
+        font-size: 15px;
+        display: flex;
+        color: $--white;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+        transform-origin: 0% 0%;
+        transition: background .3s, transform .3s;
+        &:hover {
+            background: $--secondary;
+            transform: scale(1.1);
+        }
     }
     &__controls {
         margin-top: 20px;
@@ -69,9 +92,10 @@
 }
 
 .box {
-    height: 20px;
-    width: 20px;
+    // height: 20px;
+    // width: 20px;
     background: $--primary;
+    opacity: 0.2;
     &:nth-child(1) {
         top: 0px;
     }
